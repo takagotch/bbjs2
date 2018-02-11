@@ -46,5 +46,29 @@ com.apress.view.TweetView = Backbone.View.extend({
   }
 });
 
+//model router
+com.apress.view.TweetView = Backbone.View.extend({
+  
+  tweet : null,
+  events: {
+    'click': 'markSelected'
+  },
+
+  markSelected: function(options){
+    console.log('marking..');
+    var self = this,
+	$target = $(options.currentTarget);
+    $target.addClass('selected');
+  },
+
+});
+
+markSelected: function(options){
+  console.log('marking..');
+  var self = this,
+	$target = $(options.currentTarget);
+  self.tweet.set('selected', true);
+  $target.addClass('selected');
+},
 
 
